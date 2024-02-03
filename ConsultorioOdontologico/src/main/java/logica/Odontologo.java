@@ -12,7 +12,9 @@ public class Odontologo extends Persona {
     
     //relación con la clase Turno
     private List<Turno> listaTurnos;
+    //relación con la clase Usuario
     private Usuario unUsuario;
+    //relación con la clase Horario
     private Horario unHorario;
 
     public Odontologo() {
