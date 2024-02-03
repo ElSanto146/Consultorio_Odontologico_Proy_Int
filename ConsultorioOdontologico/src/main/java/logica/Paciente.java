@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.List;
 
 
 public class Paciente extends Persona {
@@ -9,20 +10,42 @@ public class Paciente extends Persona {
     private boolean tiene_OS;
     private String tipoSangre;
     
-    //En las relaciones 1a1 se hacen con objetos. Y las 1 a n con collections
+    //En las relaciones 1a1 se hacen con instancias de clases, se crean objetos. Y las 1 a n con collections del lado del 1
+    private Responsable unResponsable;
+    private List<Turno> listaTurnos;
     
     
-    //minito 59
+    //minito 59   
 
-    public Paciente() {
+    public Paciente() { 
     }
 
-    public Paciente(int id_paciente, boolean tiene_OS, String tipoSangre, int id_persona, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
-        super(id_persona, dni, nombre, apellido, telefono, direccion, fecha_nac);
+    public Paciente(int id_paciente, boolean tiene_OS, String tipoSangre, Responsable unResponsable, List<Turno> listaTurnos, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+        super(dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.id_paciente = id_paciente;
         this.tiene_OS = tiene_OS;
         this.tipoSangre = tipoSangre;
+        this.unResponsable = unResponsable;
+        this.listaTurnos = listaTurnos;
+    }    
+
+    public Responsable getUnResponsable() {
+        return unResponsable;
     }
+
+    public void setUnResponsable(Responsable unResponsable) {
+        this.unResponsable = unResponsable;
+    }
+
+    public List<Turno> getListaTurnos() {
+        return listaTurnos;
+    }
+
+    public void setListaTurnos(List<Turno> listaTurnos) {
+        this.listaTurnos = listaTurnos;
+    }
+
+    
 
     public int getId_paciente() {
         return id_paciente;

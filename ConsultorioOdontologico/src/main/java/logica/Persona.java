@@ -15,7 +15,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(int id_persona, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+    public Persona(String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -23,7 +23,6 @@ public class Persona {
         this.direccion = direccion;
         this.fecha_nac = fecha_nac;
     }
-
 
     public String getDni() {
         return dni;
