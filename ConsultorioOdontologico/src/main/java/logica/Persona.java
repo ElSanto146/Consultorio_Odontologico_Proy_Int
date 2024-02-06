@@ -1,21 +1,45 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-
-public class Persona {
+/*Se mapea para que sirva como clase madre y que no sea una Entidad. No va a persistir
+    Pero que sus atributos sirvan como herencia.
+    Como el id lo va a heredar en las clases hijas no hace falta mapear un id.
+    Esto se genera gracias a la estrategia que usamos
+    primero esta anotattions @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+    Y luego esta: @GeneratedValue(strategy = GenerationType.IDENTITY)
+*/
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Persona implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String dni;
     private String nombre;
     private String apellido;
     private String telefono;
     private String direccion;
+    
+    //Mapeo del Date
+    @Temporal(TemporalType.DATE)
     private Date fecha_nac;
 
     public Persona() {
     }
 
-    public Persona(String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+    public Persona(int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+        this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -23,6 +47,14 @@ public class Persona {
         this.direccion = direccion;
         this.fecha_nac = fecha_nac;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }    
 
     public String getDni() {
         return dni;

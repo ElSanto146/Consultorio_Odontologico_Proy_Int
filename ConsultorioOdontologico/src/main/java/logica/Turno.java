@@ -1,14 +1,37 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
-public class Turno {
+@Entity
+public class Turno implements Serializable {    
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_turno;
+    
+    @Temporal(TemporalType.DATE)
     private Date fecha_turno;
     private String hora_turno;
-    private String afeccion;
+    private String afeccion; 
+    
+    //relación con la clase Odontologo. => Bidireccional
+    @ManyToOne
+    @JoinColumn(name = "id_turno1")//Es el nombre que va a tener la relación, la FK, entre las dos clases
+    private Odontologo odonto;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_turno2")//Es el nombre que va a tener la relación, la FK, entre las dos clases
+    private Paciente pacien;
 
     public Turno() {
     }
