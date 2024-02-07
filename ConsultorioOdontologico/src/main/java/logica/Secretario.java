@@ -1,12 +1,13 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 
 @Entity
-public class Secretario extends Persona {
+public class Secretario extends Persona implements Serializable {
     
     //private int id_secretario;
     private String sector;

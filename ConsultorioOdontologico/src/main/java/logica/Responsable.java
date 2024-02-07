@@ -1,11 +1,12 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 
 
 @Entity
-public class Responsable extends Persona {
+public class Responsable extends Persona implements Serializable {
     
     //private int  id_responsable;
     private String tipo_resp;
