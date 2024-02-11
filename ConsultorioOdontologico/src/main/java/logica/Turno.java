@@ -26,11 +26,11 @@ public class Turno implements Serializable {
     
     //relación con la clase Odontologo. => Bidireccional
     @ManyToOne
-    @JoinColumn(name = "id_turno1")//Es el nombre que va a tener la relación, la FK, entre las dos clases
+    @JoinColumn(name = "id_odonto")//Es el nombre que va a tener la relación, la FK, entre las dos clases
     private Odontologo odonto;
     
     @ManyToOne
-    @JoinColumn(name = "id_turno2")//Es el nombre que va a tener la relación, la FK, entre las dos clases
+    @JoinColumn(name = "id_pacien")//Es el nombre que va a tener la relación, la FK, entre las dos clases
     private Paciente pacien;
 
     public Turno() {

@@ -50,7 +50,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Acciones:</h6>
                         <a class="collapse-item" href="">Ver Odontólogos</a>
-                        <a class="collapse-item" href="">Alta Odontólogos</a>
+                        <a class="collapse-item" href="altaOdontologo.jsp">Alta Odontólogos</a>
                     </div>
                 </div>
             </li>
@@ -68,6 +68,23 @@
                         <h6 class="collapse-header">Acciones:</h6>
                         <a class="collapse-item" href="">Ver Pacientes</a>
                         <a class="collapse-item" href="">Alta Pacientes</a>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Al copiar lo de arriba entra en conflicto. Se soluciona cambiando el ID y el data-target(se tienen que llamar igual)-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
+                   aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-solid fa-user"></i>
+                    <span>Usuarios</span>
+                </a>
+                <div id="collapseUser" class="collapse" aria-labelledby="headingUtilities"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Acciones:</h6>
+                        <a class="collapse-item" href="SvUsuarios">Ver Usuarios</a>
+                        <a class="collapse-item" href="altaUsuarios.jsp">Alta Usuarios</a>
                     </div>
                 </div>
             </li>
@@ -136,10 +153,11 @@
                     </ul>
 
                 </nav>
+            
                 <!-- End of Topbar -->
                 <div class="container-fluid">
                     <h1 class="h3 mb-0 text-gray-800">Clínica Odontológica</h1>                    
-                </div>
+                
            
         
       
