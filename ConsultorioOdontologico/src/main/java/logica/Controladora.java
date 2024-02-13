@@ -32,7 +32,17 @@ public class Controladora {
         return controlPersis.getUsuarios();
     }
 
+    public void elimUsuario(int id) {
+        controlPersis.elimUsuario(id);
+    }
 
+    public Usuario traerUsuario(int id) {
+        return controlPersis.traerUsuario(id);
+    }
+
+    public void editarUsuario(Usuario usu) {
+        controlPersis.editarUsuario(usu);
+    }
 
 
             
