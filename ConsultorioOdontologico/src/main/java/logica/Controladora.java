@@ -1,5 +1,6 @@
 package logica;
 
+import java.util.ArrayList;
 import java.util.List;
 import persistencia.ControladoraPersistencia;
 
@@ -42,6 +43,26 @@ public class Controladora {
 
     public void editarUsuario(Usuario usu) {
         controlPersis.editarUsuario(usu);
+    }
+
+    //buscar el usuario en la BBDD, si existe, validar que la contraseña sea correcta
+    public boolean comprobaringreso(String usuario, String contrasenia) {
+        //lo ideal es hacer una consulta SQL y traer los datos del usuario, en este caso se traen todos los usuarios se recorre la lista y se compara
+        boolean ingreso = false;
+        
+        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        listaUsuarios = controlPersis.getUsuarios();
+        
+        for (Usuario usu : listaUsuarios) {
+            if (usu.getNombreUsuario().equals(usuario)) {
+                if (usu.getContrasenia().equals(contrasenia)) {
+                    ingreso = true;
+                }
+            } else {
+                ingreso = false;
+            }
+        }
+        return ingreso;
     }
 
 
